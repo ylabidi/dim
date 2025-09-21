@@ -65,10 +65,7 @@ impl IntoResponse for DimErrorWrapper {
             _ => StatusCode::INTERNAL_SERVER_ERROR,
         };
 
-        let resp = serde_json::json!({
-            "error": serde_json::json!(&self.0)["error"],
-            "message": self.0.to_string(),
-        });
-        (status, serde_json::to_string(&resp).unwrap()).into_response()
+        let error_message = self.0.to_string();
+        (status_code, error_message).into_response()
     }
 }
