@@ -1,6 +1,7 @@
 *.db
 *.db-shm
 *.db-wal
+.envrc
 extra/*.pem
 utils/ffmpeg*
 utils/ffprobe*
